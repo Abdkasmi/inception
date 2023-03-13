@@ -28,7 +28,7 @@ RUN openssl req -x509 -nodes \
 RUN 	mkdir -p /var/run/nginx
 
 # Copy config file on the container
-COPY	tools/nginx.conf /etc/nginx/http.d/default.conf
+COPY	tools/nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose the only port we can use in t he subject
 EXPOSE 443
