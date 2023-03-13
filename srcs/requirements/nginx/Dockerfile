@@ -34,4 +34,4 @@ COPY	tools/nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 443
 
 # start server
-CMD ["nginx", "-g", "deamon off;"]
+CMD ["nginx", "-c", "/etc/nginx/conf.d/default.conf" "-g", "deamon off;"]
