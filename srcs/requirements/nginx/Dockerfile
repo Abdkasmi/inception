@@ -22,7 +22,7 @@ RUN mkdir -p /etc/nginx/ssl
 RUN openssl req -x509 -nodes \
     -keyout /etc/nginx/ssl/nginx-selfsigned.key \
     -out /etc/nginx/ssl/nginx-selfsigned.crt \
-    -subj "/C=BE/ST=Brussels/L=Brussels/O=42/OU=19/CN=abkasmi.42.fr/UID=abkasmi"
+    -subj "/C=BE/ST=Belgium/L=Brussels/O=42/OU=19/CN=abkasmi.42.fr/UID=abkasmi"
 
 # Create directory for the nginx config files
 RUN 	mkdir -p /var/run/nginx
