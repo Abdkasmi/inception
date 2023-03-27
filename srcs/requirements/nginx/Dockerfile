@@ -1,6 +1,6 @@
 # instructions to build my nginx image
 
-FROM debian:10
+FROM debian:buster
 
 
 # installing nginx and openssl
@@ -20,8 +20,8 @@ RUN mkdir -p /etc/nginx/ssl
 # -out = This tells OpenSSL where to place the certificate that we are creating.
 # -subj = response to SSL key info 
 RUN openssl req -x509 -nodes \
-    -keyout /etc/nginx/ssl/nginx-selfsigned.key \
-    -out /etc/nginx/ssl/nginx-selfsigned.crt \
+    -keyout /etc/nginx/ssl/abkasmi.42.fr.key \
+    -out /etc/nginx/ssl/abkasmi.42.fr.crt \
     -subj "/C=BE/ST=Belgium/L=Brussels/O=42/OU=19/CN=abkasmi.42.fr/UID=abkasmi"
 
 # Create directory for the nginx config files
@@ -30,8 +30,8 @@ RUN 	mkdir -p /var/run/nginx
 # Copy config file on the container
 COPY	tools/nginx.conf /etc/nginx/conf.d/default.conf
 
-# Expose the only port we can use in t he subject
+# Expose the only port we can use in the subject
 EXPOSE 443
 
 # start server
-CMD ["nginx", "-g", "deamon off;"]
+CMD ["nginx"]
