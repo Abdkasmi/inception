@@ -1,15 +1,30 @@
 # instructions to build my database image
 
-FROM debian:10
+FROM debian:buster
 
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install mariadb mariadb-client -y
-
-# change ownerchip for mysql files
-RUN chown -R mysql:mysql /var/lib/mysql
+RUN apt-get install mariadb-server -y
 
 # create directory for deamon
-RUN mkdir -p /var/run/mysqld; mkfifo /var/run/mysqld/mysqld.sock
-RUN chown -R mysql:mysql /var/run/mysql
+RUN mkdir -p /var/lib/mysqld /run/mysqld
 
+# COPY the config.sql file
+COPY ./tools/config.sql /tmp/config.sql
+
+# COPY entrypoint script and add execution right to execute it
+COPY ./tools/entrypoint.sh ./
+RUN chmod +x ./entrypoint.sh
+
+# COPY mariadb conf file
+COPY ./tools/mariadb.cnf /etc/my.cnf.d/
+
+# Installation and authentification of database
+RUN /etc/init.d/mysql start && mysql < /tmp/config.sql && /etc/init.d/mysql stop
+
+# Change ownership for mysql files 
+# This ensures that the MySQL server has the necessary permissions to read and write to these directories and their contents.
+RUN	chown -R mysql:mysql /var/lib/mysql 
+RUN chown -R mysql:mysql /run/mysqld
+
+ENTRYPOINT ["bash", "entrypoint.sh"]

@@ -1,6 +1,6 @@
 # instructions to build my wordpress image 
 
-FROM debian:10
+FROM debian:buster
 
 # installing php7.4 and some utils
 RUN apt-get update
@@ -13,4 +13,3 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 # assigning execution rights to use wp and moving the executable in PATH
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
-
