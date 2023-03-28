@@ -21,9 +21,6 @@ RUN chmod +x ./entrypoint.sh
 COPY ./tools/mariadb.cnf /etc/my.cnf.d/
 RUN chmod +x /etc/my.cnf.d/mariadb.cnf
 
-# Installation of database
-RUN /etc/init.d/mysql start && mysql < /tmp/config.sql && /etc/init.d/mysql stop
-
 # Change ownership for mysql files 
 # This ensures that the MySQL server has the necessary permissions to read and write to these directories and their contents.
 RUN	chown -R mysql:mysql /var/lib/mysql 
