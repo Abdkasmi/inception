@@ -11,6 +11,7 @@ RUN mkdir -p /var/lib/mysqld /run/mysqld
 
 # COPY the config.sql file
 COPY ./tools/config.sql /tmp/config.sql
+RUN chmod +x /tmp/config.sql
 
 # COPY entrypoint script and add execution right to execute it
 COPY ./tools/entrypoint.sh ./
@@ -18,8 +19,9 @@ RUN chmod +x ./entrypoint.sh
 
 # COPY mariadb conf file
 COPY ./tools/mariadb.cnf /etc/my.cnf.d/
+RUN chmod +x /etc/my.cnf.d/mariadb.cnf
 
-# Installation and authentification of database
+# Installation of database
 RUN /etc/init.d/mysql start && mysql < /tmp/config.sql && /etc/init.d/mysql stop
 
 # Change ownership for mysql files 
