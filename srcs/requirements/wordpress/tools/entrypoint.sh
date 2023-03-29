@@ -13,7 +13,7 @@ if [ $? -ne 0 ]; then
 	echo "create config.php"
 	wp config create --dbname=$MARIADB_DATABASE \
 					--dbuser=$MARIADB_USER \
-					--dbpass=$MARIADB_USER_PASSWORD \
+					--dbpass=$MARIADB_USER_PWD \
 					--dbhost=$MARIADB_HOST \
 					--path="/var/www/wordpress/" \
 					--skip-check \
@@ -26,7 +26,7 @@ if ! wp core is-installed --allow-root; then
 	wp core install --url=$WORDPRESS_URL \
 					--title=$WORDPRESS_TITLE \
 					--admin_user=$WORDPRESS_ADMIN \
-					--admin_password=$WORDPRESS_ADMIN_PASSWORD \
+					--admin_password=$WORDPRESS_ADMIN_PWD \
 					--admin_email=$WORDPRESS_ADMIN_EMAIL \
 					--skip-email \
 					--allow-root
@@ -37,14 +37,14 @@ if ! wp core is-installed --allow-root; then
 	echo "create Wordpress user"
 	wp user create $WORDPRESS_USER $WORDPRESS_USER_EMAIL \
 					--role=editor \
-					--user_pass=$WORDPRESS_USER_PASSWORD \
+					--user_pass=$WORDPRESS_USER_PWD \
 					--allow-root
 
 	echo "generate first post"
 	wp post generate --count=1 \
 						--post_title=$WORDPRESS_TITLE \
 						--post_author=$WORDPRESS_ADMIN \
-						--post_content="j'ai pas d'idee" \
+						--post_content="Hey, it's my first time here !" \
 						--allow-root
 fi
 
