@@ -1,9 +1,9 @@
-version: "3.9"
+version: "3.3"
 
 services:
   mariadb:
     container_name: mariadb
-    build: ./requirement/mariadb
+    build: ./requirements/mariadb
     env_file: .env
     networks:
       - mynetwork
@@ -14,7 +14,7 @@ services:
 
   wordpress:
     container_name: wordpress
-    build: ./requirement/wordpress
+    build: ./requirements/wordpress
     env_file: .env
     networks:
       - mynetwork
@@ -27,7 +27,7 @@ services:
 
   nginx:
     container_name: nginx
-    build: ./requirement/nginx
+    build: ./requirements/nginx
     env_file: .env
     networks:
       - mynetwork
@@ -38,7 +38,7 @@ services:
       - wordpress
     volumes:
       - wordpress_volume:/var/www/wordpress
-    restart: unless-stoped
+    restart: unless-stopped
 
 networks:
   mynetwork:

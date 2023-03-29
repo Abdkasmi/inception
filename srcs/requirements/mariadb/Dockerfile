@@ -24,6 +24,7 @@ RUN chmod +x /etc/my.cnf.d/mariadb.cnf
 # Change ownership for mysql files 
 # This ensures that the MySQL server has the necessary permissions to read and write to these directories and their contents.
 RUN	chown -R mysql:mysql /var/lib/mysql 
+RUN mkdir -p /var/run/mysqld; mkfifo /var/run/mysqld/mysqld.sock
 RUN chown -R mysql:mysql /run/mysqld
 
 ENTRYPOINT ["bash", "entrypoint.sh"]

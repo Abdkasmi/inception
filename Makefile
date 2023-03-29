@@ -10,9 +10,9 @@ RESET		= $(shell tput -Txterm sgr0)
 
 all:
 		docker-compose -f ./srcs/docker-compose.yml build
-		sudo echo "127.0.0.1 zminhas.42.fr" >> /etc/hosts
-		mkdir -p /home/zminhas/data/database
-		mkdir -p /home/zminhas/data/wordpress
+		sudo echo "127.0.0.1 abkasmi.42.fr" >> /etc/hosts
+		mkdir -p /home/abkasmi/data/database
+		mkdir -p /home/abkasmi/data/wordpress
 		docker-compose -f ./srcs/docker-compose.yml up --detach
 		@echo "${GREEN}ready!${RESET}"
 
@@ -34,7 +34,7 @@ fclean:	clean
 		@docker image rm wordpress
 		@docker image rm nginx
 		@docker image rm debian:buster
-		@sudo rm -rf /home/zminhas/data
+		@sudo rm -rf /home/abkasmi/data
 		@echo "${RED}full cleaned${RESET}"
 
 re:	fclean all
