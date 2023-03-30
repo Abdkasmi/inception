@@ -5,7 +5,7 @@ FROM debian:buster
 # installing php7.4 and some utils
 RUN apt-get update -y
 RUN apt-get install curl bash vim -y
-RUN apt-get install curl php7.3 php7.3-fpm php7.3-mysql -y
+RUN apt-get install php7.3 php7.3-fpm php7.3-mysql -y
 RUN mkdir -p /run/php
 
 # intalling wp-cli from a url using curl (wordpress-commandline)
