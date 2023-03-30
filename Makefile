@@ -9,7 +9,7 @@ WHITE		= $(shell tput -Txterm setaf 7)
 RESET		= $(shell tput -Txterm sgr0)
 
 all:
-		docker-compose -f ./srcs/docker-compose.yml build
+		sudo docker-compose -f ./srcs/docker-compose.yml build
 		sudo echo "127.0.0.1 abkasmi.42.fr" >> /etc/hosts
 		mkdir -p /home/abkasmi/data/database
 		mkdir -p /home/abkasmi/data/wordpress
@@ -17,16 +17,16 @@ all:
 		@echo "${GREEN}ready!${RESET}"
 
 up:		
-		docker-compose -f ./srcs/docker-compose.yml up --detach
+		sudo docker-compose -f ./srcs/docker-compose.yml up --detach
 		@echo "${LIGHTBLUE}container up${RESET}"
 
 down:
-		docker-compose -f ./srcs/docker-compose.yml down
+		sudo docker-compose -f ./srcs/docker-compose.yml down
 		@echo "${BLUE}container down${RESET}"
 
 clean:	down
-		docker volume rm -f srcs_mariadb_volume
-		docker volume rm -f srcs_wordpress_volume
+		sudo docker volume rm -f srcs_mariadb_volume
+		sudo docker volume rm -f srcs_wordpress_volume
 		@echo "${YELLOW}cleaned${RESET}"
 
 fclean:	clean
