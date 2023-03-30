@@ -25,15 +25,15 @@ down:
 		@echo "${BLUE}container down${RESET}"
 
 clean:	down
-		docker volume rm srcs_mariadb_volume
-		docker volume rm srcs_wordpress_volume
+		docker volume rm -f srcs_mariadb_volume
+		docker volume rm -f srcs_wordpress_volume
 		@echo "${YELLOW}cleaned${RESET}"
 
 fclean:	clean
-		@docker image rm mariadb
-		@docker image rm wordpress
-		@docker image rm nginx
-		@docker image rm debian:buster
+		@docker image rm -f mariadb
+		@docker image rm -f wordpress
+		@docker image rm -f nginx
+		@docker image rm -f debian:buster
 		@sudo rm -rf /home/abkasmi/data
 		@echo "${RED}full cleaned${RESET}"
 
