@@ -11,6 +11,11 @@ RUN apt-get install openssl -y
 # creating a directory to store the certificate
 RUN mkdir -p /etc/nginx/ssl
 
+# Create directory for the nginx config files
+RUN 	mkdir -p /var/run/nginx
+
+# Copy config file on the container
+COPY	tools/nginx.conf /etc/nginx/conf.d/default.conf
 
 # openssl is the basic command line tool for creating or managing OpenSSl certificates, keys,...
 # req is used to requesta and generate a certificate
@@ -24,14 +29,8 @@ RUN openssl req -x509 -nodes \
     -out /etc/nginx/ssl/abkasmi.42.fr.crt \
     -subj "/C=BE/ST=Belgium/L=Brussels/O=42/OU=19/CN=abkasmi.42.fr/UID=abkasmi"
 
-# Create directory for the nginx config files
-RUN 	mkdir -p /var/run/nginx
-
-# Copy config file on the container
-COPY	tools/nginx.conf /etc/nginx/conf.d/default.conf
-
 # Expose the only port we can use in the subject
 EXPOSE 443
 
 # start server
-CMD ["nginx", "-g" "deamon off;"]
+ENTRYPOINT ["nginx", "-g" "deamon off;"]
