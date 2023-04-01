@@ -1,5 +1,4 @@
 # instructions to build my wordpress image 
-
 FROM debian:buster
 
 # installing php7.4 and some utils
