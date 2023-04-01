@@ -33,4 +33,4 @@ RUN openssl req -x509 -nodes \
 EXPOSE 443
 
 # start server
-ENTRYPOINT ["nginx", "-g" "deamon off;"]
+ENTRYPOINT ["nginx", "-g", "deamon off;"]
