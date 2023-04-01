@@ -27,4 +27,4 @@ RUN	chown -R mysql:mysql /var/lib/mysql
 RUN mkdir -p /var/run/mysqld; mkfifo /var/run/mysqld/mysqld.sock
 RUN chown -R mysql:mysql /run/mysqld
 
-ENTRYPOINT ["bash", "entrypoint.sh"]
+ENTRYPOINT ["bash", "/entrypoint.sh"]
