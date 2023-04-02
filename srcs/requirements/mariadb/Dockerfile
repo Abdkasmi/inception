@@ -14,7 +14,7 @@ COPY ./tools/mariadb.cnf /etc/mysql/
 COPY ./tools/config.sql ./
 COPY ./tools/entrypoint.sh ./
 
-ENTRYPOINT [ "bash", "entrypoint.sh" ]
+ENTRYPOINT [ "bash", "/entrypoint.sh" ]
 
 # create directory for deamon
 # RUN mkdir -p /var/lib/mysqld /run/mysqld
