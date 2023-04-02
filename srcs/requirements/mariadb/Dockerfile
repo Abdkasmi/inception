@@ -16,10 +16,10 @@ RUN chmod +x /etc/my.cnf.d/mariadb.cnf
 COPY ./tools/config.sql /tmp/
 RUN chmod +x /tmp/config.sql
 
-COPY ./tools/entrypoint.sh ./
+COPY ./tools/entrypoint.sh /tmp/
 RUN chmod +x ./entrypoint.sh
 
-ENTRYPOINT [ "bash", "entrypoint.sh" ]
+ENTRYPOINT [ "bash", "/tmp/entrypoint.sh" ]
 
 # create directory for deamon
 # RUN mkdir -p /var/lib/mysqld /run/mysqld
