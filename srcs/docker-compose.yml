@@ -38,7 +38,7 @@ services:
       - wordpress
     volumes:
       - wordpress_volume:/var/www/wordpress
-    restart: on-failure
+    restart: unless-stopped
 
 networks:
   mynetwork:
