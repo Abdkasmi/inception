@@ -17,7 +17,7 @@ COPY ./tools/config.sql /tmp/
 RUN chmod +x /tmp/config.sql
 
 COPY ./tools/entrypoint.sh /tmp/
-RUN chmod +x ./entrypoint.sh
+RUN chmod +x /tmp/entrypoint.sh
 
 ENTRYPOINT [ "bash", "/tmp/entrypoint.sh" ]
 
