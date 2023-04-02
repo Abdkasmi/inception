@@ -29,7 +29,7 @@ RUN openssl req -x509 -nodes \
     -subj "/C=BE/ST=Belgium/L=Brussels/O=42/OU=19/CN=abkasmi.42.fr/UID=abkasmi"
 
 # Expose the only port we can use in the subject
-#EXPOSE 443
+EXPOSE 443
 
 # start server
 CMD ["nginx"]
