@@ -10,9 +10,14 @@ RUN mkdir -p /var/run/mysqld; \
 	mkfifo /var/run/mysqld/mysqld.sock
 RUN chown -R mysql:mysql /var/run/mysqld
 
-COPY ./tools/mariadb.cnf /etc/mysql/
-COPY ./tools/config.sql ./
+COPY ./tools/mariadb.cnf /etc/my.cnf.d/
+RUN chmod +x /etc/my.cnf.d/mariadb.cnf
+
+COPY ./tools/config.sql /tmp/
+RUN chmod +x /tmp/config.sql
+
 COPY ./tools/entrypoint.sh ./
+RUN chmod +x ./entrypoint.sh
 
 ENTRYPOINT [ "bash", "entrypoint.sh" ]
 
