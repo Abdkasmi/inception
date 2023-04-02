@@ -26,4 +26,4 @@ RUN wp core download --allow-root
 # change ownership for wordpress file
 RUN chown -R www-data:www-data /var/www/wordpress
 
-ENTRYPOINT [ "bash", "entrypoint.sh" ]
+ENTRYPOINT [ "bash", "/entrypoint.sh" ]
