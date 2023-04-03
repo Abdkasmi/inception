@@ -10,7 +10,7 @@ then
     	sleep 1
 	done
 
-	eval "echo \"$(cat /tmp/create_db.sql)\"" | mariadb
+	eval "echo \"$(cat /tmp/config.sql)\"" | mariadb
 	touch .setup
 fi
 
