@@ -2,13 +2,12 @@
 
 FROM debian:buster
 
-
+RUN echo 'hello'
 # installing nginx and openssl
 RUN apt-get update -y
 RUN apt-get install nginx -y
 RUN apt-get install openssl -y
 
-RUN echo 'hello'
 
 # creating a directory to store the certificate
 RUN mkdir -p /etc/nginx/ssl
