@@ -15,7 +15,7 @@ RUN mkdir -p /etc/nginx/ssl
 RUN 	mkdir -p /var/run/nginx
 
 # Copy config file on the container
-COPY	tools/nginx.conf /etc/nginx/conf.d/default.conf
+COPY	tools/nginx.conf /etc/nginx/http.d/default.conf
 
 # openssl is the basic command line tool for creating or managing OpenSSl certificates, keys,...
 # req is used to requesta and generate a certificate
