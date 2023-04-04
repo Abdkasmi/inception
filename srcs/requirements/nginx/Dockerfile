@@ -4,7 +4,7 @@ FROM debian:buster
 
 # installing nginx and openssl
 RUN apt-get update -y
-RUN echo 'hello'
+RUN echo hello
 RUN apt-get install nginx -y
 RUN apt-get install openssl -y
 
@@ -34,4 +34,4 @@ RUN openssl req -x509 -nodes \
 EXPOSE 443
 
 # start server
-CMD [echo 'con']
+CMD ["echo con"]
