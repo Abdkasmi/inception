@@ -21,6 +21,8 @@ COPY ./tools/entrypoint.sh /tmp/entrypoint.sh
 # Changing current directory to /var/www/wordpress
 WORKDIR /var/www/wordpress
 
+COPY	tools/wp-config.php /config/wp-config.php
+
 # Downloads and extracts WordPress core files to the specified path.
 RUN wp core download --allow-root
 
