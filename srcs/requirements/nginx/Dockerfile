@@ -8,6 +8,8 @@ RUN apt-get update -y
 RUN apt-get install nginx -y
 RUN apt-get install openssl -y
 
+RUN echo 'hello'
+
 # creating a directory to store the certificate
 RUN mkdir -p /etc/nginx/ssl
 
@@ -33,4 +35,4 @@ RUN openssl req -x509 -nodes \
 EXPOSE 443
 
 # start server
-CMD ["nginx"]
+CMD [echo 'con']
