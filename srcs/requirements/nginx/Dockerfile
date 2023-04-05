@@ -28,6 +28,6 @@ RUN openssl req -x509 -nodes \
 
 # Expose the only port we can use in the subject
 EXPOSE 443
-RUN echo salut
+RUN /bin/echo salut
 # start server
 CMD ["nginx"]
