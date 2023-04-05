@@ -11,11 +11,8 @@ RUN apt-get install openssl -y
 # creating a directory to store the certificate
 RUN mkdir -p /etc/nginx/ssl
 
-# Create directory for the nginx config files
-RUN 	mkdir -p /var/run/nginx
-
 # Copy config file on the container
-COPY	tools/nginx.conf /var/nginx/default.conf
+COPY	tools/nginx.conf etc/nginx/sites-enabled/default.conf
 
 # openssl is the basic command line tool for creating or managing OpenSSl certificates, keys,...
 # req is used to requesta and generate a certificate
