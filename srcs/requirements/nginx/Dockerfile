@@ -4,7 +4,6 @@ FROM debian:buster
 
 # installing nginx and openssl
 RUN apt-get update -y
-RUN echo hello
 RUN apt-get install nginx -y
 RUN apt-get install openssl -y
 
@@ -16,7 +15,7 @@ RUN mkdir -p /etc/nginx/ssl
 RUN 	mkdir -p /var/run/nginx
 
 # Copy config file on the container
-COPY	tools/nginx.conf /etc/nginx/http.d/default.conf
+COPY	tools/nginx.conf /var/nginx/default.conf
 
 # openssl is the basic command line tool for creating or managing OpenSSl certificates, keys,...
 # req is used to requesta and generate a certificate
@@ -34,4 +33,4 @@ RUN openssl req -x509 -nodes \
 EXPOSE 443
 
 # start server
-CMD ["echo con"]
+CMD ["nginx"]
