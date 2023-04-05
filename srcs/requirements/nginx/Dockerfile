@@ -4,6 +4,7 @@ FROM debian:buster
 
 # installing nginx and openssl
 RUN apt-get update -y
+RUN /bin/echo salut
 RUN apt-get install nginx -y
 RUN apt-get install openssl -y
 
@@ -28,6 +29,6 @@ RUN openssl req -x509 -nodes \
 
 # Expose the only port we can use in the subject
 EXPOSE 443
-RUN /bin/echo salut
+
 # start server
 CMD ["nginx"]
