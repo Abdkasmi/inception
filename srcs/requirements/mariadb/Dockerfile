@@ -15,4 +15,4 @@ COPY ./tools/mariadb.cnf /etc/mysql/
 COPY ./tools/config.sql ./
 COPY ./tools/entrypoint.sh ./
 
-ENTRYPOINT [ "bash", "/tmp/entrypoint.sh" ]
+ENTRYPOINT [ "bash", "entrypoint.sh" ]
