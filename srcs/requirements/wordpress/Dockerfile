@@ -22,7 +22,7 @@ WORKDIR /var/www/wordpress
 COPY	tools/wp-config.php /config/wp-config.php
 
 COPY ./tools/entrypoint.sh ./entrypoint.sh
-RUN chmod +x /entrypoint.sh
+RUN chmod +x ./entrypoint.sh
 
 # change ownership for wordpress file
 RUN	wp core download --path=/var/www/wordpress
