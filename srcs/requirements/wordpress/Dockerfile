@@ -15,17 +15,17 @@ RUN curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.ph
 # assigning execution rights to use wp and moving the executable in PATH
 RUN chmod +x ./usr/bin/wp
 
+RUN	wp core download --path=/var/www/wordpress --allow-root
 
 # Changing current directory to /var/www/wordpress
 WORKDIR /var/www/wordpress
 
 COPY	tools/wp-config.php /config/wp-config.php
 
-COPY ./tools/entrypoint.sh ./entrypoint.sh
-RUN chmod +x ./entrypoint.sh
+COPY ./tools/entrypoint.sh /tmp/entrypoint.sh
+RUN chmod +x /tmp/entrypoint.sh
 
 # change ownership for wordpress file
-RUN	wp core download --path=/var/www/wordpress --allow-root
-RUN chown -R www-data:www-data /var/www/wordpress
+#RUN chown -R www-data:www-data /var/www/wordpress
 
-ENTRYPOINT [ "bash", "/entrypoint.sh" ]
+ENTRYPOINT [ "bash", "/tmp/entrypoint.sh" ]
