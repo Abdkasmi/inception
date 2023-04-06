@@ -7,24 +7,25 @@ RUN apt-get update -y
 RUN apt-get install curl bash vim -y
 RUN apt-get install php7.3 php7.3-fpm php7.3-mysql -y
 
-RUN		mkdir -p /var/www/wordpress 
+RUN	mkdir -p /var/www/wordpress 
 
 # intalling wp-cli from a url using curl (wordpress-commandline)
-RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+RUN curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 
 # assigning execution rights to use wp and moving the executable in PATH
 RUN chmod +x wp-cli.phar
-#RUN	wp core download --path=/var/www/wordpress
+
 
 # Changing current directory to /var/www/wordpress
 WORKDIR /var/www/wordpress
 
 COPY	tools/wp-config.php /config/wp-config.php
 
-COPY ./tools/entrypoint.sh /tmp/entrypoint.sh
-RUN chmod +x /tmp/entrypoint.sh
+COPY ./tools/entrypoint.sh ./entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 # change ownership for wordpress file
+RUN	wp core download --path=/var/www/wordpress
 RUN chown -R www-data:www-data /var/www/wordpress
 
-ENTRYPOINT [ "bash", "/tmp/entrypoint.sh" ]
+ENTRYPOINT [ "bash", "/entrypoint.sh" ]
