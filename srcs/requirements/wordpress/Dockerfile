@@ -14,7 +14,7 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 
 # assigning execution rights to use wp and moving the executable in PATH
 RUN chmod +x wp-cli.phar
-RUN	wp core download --path=/var/www/wordpress
+#RUN	wp core download --path=/var/www/wordpress
 
 # Changing current directory to /var/www/wordpress
 WORKDIR /var/www/wordpress
