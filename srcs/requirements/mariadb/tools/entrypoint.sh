@@ -1,20 +1,12 @@
-cat .setup 2> /dev/null
-if [ $? -ne 0 ]
-then
-	# Start mysql in safe mode, with "&" to be able to apply modifications
-	usr/bin/mysqld_safe --datadir=/var/lib/mysql &
+if [ ! -d /var/lib/mysql/$MARIADB_DATABASE ]; then
+	service mysql start --datadir=/var/lib/mysql
 
-	# We wait for the database to be accessible
-	while ! mysqladmin ping -h "$MARIADB_HOST" --silent
-	do
-    	sleep 1
-	done
+	echo "create $MARIADB_DATABASE"
+	eval "echo \"$(cat config.sql)\"" | mariadb -u root
+	mysqladmin -u root password $MARIADB_ROOT_PASSWORD
 
-	eval "echo \"$(cat /tmp/config.sql)\"" | mariadb
-	touch .setup
+	service mysql stop --datadir=/var/lib/mysql
 fi
 
-# Start mysql in safe mode normally
-# Adds some safety features such as restarting the server when an error occurs and logging runtime information to an error log.
-# mysqld_safe tries to start an executable named mysqld
-usr/bin/mysqld_safe --datadir=/var/lib/mysql
+echo "$MARIADB_DATABASE ready"
+mysqld_safe --datadir=/var/lib/mysql

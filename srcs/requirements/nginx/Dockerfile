@@ -4,7 +4,6 @@ FROM debian:buster
 
 # installing nginx and openssl
 RUN apt-get update -y
-RUN /bin/echo salut
 RUN apt-get install nginx -y
 RUN apt-get install openssl -y
 
