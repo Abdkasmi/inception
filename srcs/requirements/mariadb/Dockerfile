@@ -12,7 +12,7 @@ RUN apt-get install mariadb-server -y
 # RUN chown -R mysql:mysql /var/run/mysqld
 
 COPY ./tools/mariadb.cnf /etc/mysql/
-COPY ./tools/config.sql ./
-COPY ./tools/entrypoint.sh ./
+COPY ./tools/config.sql /tmp/
+COPY ./tools/entrypoint.sh /tmp/
 
-ENTRYPOINT [ "bash", "entrypoint.sh" ]
+ENTRYPOINT [ "bash", "/tmp/entrypoint.sh" ]
