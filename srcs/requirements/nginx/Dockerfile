@@ -30,4 +30,4 @@ RUN openssl req -x509 -nodes \
 EXPOSE 443
 
 # start server
-CMD nginx -g "deamon off;"
+CMD [ "nginx" ]
