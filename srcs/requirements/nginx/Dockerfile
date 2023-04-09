@@ -10,6 +10,7 @@ RUN apt-get install openssl -y
 
 # creating a directory to store the certificate
 RUN mkdir -p /etc/nginx/ssl
+RUN mkdir -p /etc/nginx/sites-enabled
 
 # Copy config file on the container
 COPY	tools/nginx.conf etc/nginx/sites-enabled/default.conf
