@@ -9,7 +9,7 @@ if [ ! -d /var/lib/mysql/$MARIADB_DATABASE ]; then
 	mkfifo /var/run/mysqld/mysqlf.sock
 
 	mysql -u root -e "CREATE DATABASE IF NOT EXISTS $MARIADB_DATABASE;"
-	mysql -u root -e "CREATE USER IF NOT EXISTS '$MARIADB_USER'@'%' IDENTIFIED BY '$MARIADB_PASSWORD';"
+	mysql -u root -e "CREATE USER IF NOT EXISTS '$MARIADB_USER'@'%' IDENTIFIED BY '$MARIADB_PWD';"
 	mysql -u root -e "GRANT ALL PRIVILEGES ON $MARIADB_DATABASE.* TO '$MARIADB_USER'@'%';"
 	mysql -u root -e "FLUSH PRIVILEGES;"
 
