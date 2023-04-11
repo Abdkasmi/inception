@@ -16,5 +16,4 @@ COPY ./tools/config.sql /tmp/
 COPY ./tools/entrypoint.sh /tmp/
 RUN chmod +x /tmp/entrypoint.sh
 
-ENTRYPOINT [ "/tmp/entrypoint.sh" ]
-CMD [ "mysqld", "--bind-address=0.0.0.0" ]
+ENTRYPOINT [ "bash", "mariadb/tmp/entrypoint.sh" ]
