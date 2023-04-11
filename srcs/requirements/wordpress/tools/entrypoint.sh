@@ -9,8 +9,11 @@ fi
 
 echo "check if the config file already exist"
 cat /.setup 2> /dev/null
-if [ $? -ne 0 ]; then
+if [ ! -f "wp-config.php" ]; then
 	echo "create config.php"
+	
+	cp /config/wp-config.php ./wp-config.php
+
 	wp config create --dbname=$MARIADB_DATABASE \
 					--dbuser=$MARIADB_USER \
 					--dbpass=$MARIADB_USER_PWD \
