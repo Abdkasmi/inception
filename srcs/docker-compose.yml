@@ -5,6 +5,8 @@ services:
     container_name: mariadb
     build: ./requirements/mariadb
     env_file: .env
+    ports:
+      - 3306:3306
     networks:
       - mynetwork
     image: mariadb
@@ -16,6 +18,8 @@ services:
     container_name: wordpress
     build: ./requirements/wordpress
     env_file: .env
+    ports:
+      - 9000:9000
     networks:
       - mynetwork
     image: wordpress
