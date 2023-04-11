@@ -15,4 +15,5 @@ COPY ./tools/mariadb.cnf /etc/mysql/
 COPY ./tools/config.sql /tmp/
 COPY ./tools/entrypoint.sh /tmp/
 
-ENTRYPOINT [ "bash", "/tmp/entrypoint.sh" ]
+ENTRYPOINT [ "/tmp/entrypoint.sh" ]
+CMD [ "mysqld", "--bind-address=0.0.0.0" ]
