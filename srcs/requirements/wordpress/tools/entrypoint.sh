@@ -12,15 +12,15 @@ cat /.setup 2> /dev/null
 if [ ! -f "wp-config.php" ]; then
 	echo "create config.php"
 
-	cp /config/wp-config.php ./wp-config.php
+	# cp /config/wp-config.php ./wp-config.php
 
-	# wp config create --dbname=$MARIADB_DATABASE \
-	# 				--dbuser=$MARIADB_USER \
-	# 				--dbpass=$MARIADB_USER_PWD \
-	# 				--dbhost=$MARIADB_HOST \
-	# 				--path="/var/www/wordpress/" \
-	# 				--skip-check \
-	# 				--allow-root
+	wp config create --dbname=$MARIADB_DATABASE \
+					--dbuser=$MARIADB_USER \
+					--dbpass=$MARIADB_USER_PWD \
+					--dbhost=$MARIADB_HOST \
+					--path="/var/www/wordpress/" \
+					--skip-check \
+					--allow-root
 	touch /.setup
 fi
 
