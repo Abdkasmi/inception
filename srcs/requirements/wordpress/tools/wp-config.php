@@ -1,9 +1,9 @@
 <?php
 define('WP_CACHE', true);
-define('DB_NAME', getenv('MARIADB_DATABASE'));
-define('DB_USER', getenv('MARIADB_USER'));
-define('DB_PASSWORD', getenv('MARIADB_PWD'));
-define('DB_HOST', getenv('MARIADB_HOST'));
+define('DB_NAME', 'mydb');
+define('DB_USER', 'abdoullah');
+define('DB_PASSWORD', 'wp_pwd');
+define('DB_HOST', 'mariadb');
 define('DB_CHARSET', 'utf8');
 define('DB_COLLATE', '');
 
