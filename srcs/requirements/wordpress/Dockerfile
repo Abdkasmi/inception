@@ -2,6 +2,9 @@
 
 FROM debian:buster
 
+ENV DEBIAN_FRONTEND noninteractive
+ENV TERM xterm
+
 # installing php7.4 and some utils
 RUN apt-get update -y
 RUN apt-get install curl bash vim -y
