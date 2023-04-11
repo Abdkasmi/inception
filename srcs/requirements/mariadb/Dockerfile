@@ -14,6 +14,7 @@ RUN apt-get install mariadb-server -y
 COPY ./tools/mariadb.cnf /etc/mysql/
 COPY ./tools/config.sql /tmp/
 COPY ./tools/entrypoint.sh /tmp/
+RUN chmod +x /tmp/entrypoint.sh
 
 ENTRYPOINT [ "/tmp/entrypoint.sh" ]
 CMD [ "mysqld", "--bind-address=0.0.0.0" ]
