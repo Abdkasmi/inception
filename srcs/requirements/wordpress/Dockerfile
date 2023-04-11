@@ -6,6 +6,7 @@ FROM debian:buster
 RUN apt-get update -y
 RUN apt-get install curl bash vim -y
 RUN apt-get install php7.3 php7.3-fpm php7.3-mysql -y
+RUN mkdir -p /run/php
 
 RUN	mkdir -p /var/www/wordpress 
 
@@ -20,7 +21,7 @@ RUN mv wp-cli.phar /usr/local/bin/wp
 # Changing current directory to /var/www/wordpress
 WORKDIR /var/www/wordpress
 
-RUN	wp core download --path=/var/www/wordpress --allow-root
+RUN	wp core download --allow-root
 
 COPY	tools/wp-config.php /config/wp-config.php
 

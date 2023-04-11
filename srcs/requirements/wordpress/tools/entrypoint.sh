@@ -1,11 +1,11 @@
-#!/bin/sh
+!/bin/sh
 
-# echo "does Wordpress listen on the good port"
-# grep -E "listen = 9000" "/etc/php/7.3/fpm/pool.d/www.conf" > /dev/null 2>&1
-# if [ $? -ne 0 ]; then
-#  	echo "listen port configuration"
-# 	sed -i "s|.*listen = /run/php/php7.3-fpm.sock.*|listen = 9000|g" "/etc/php/7.3/fpm/pool.d/www.conf" 
-# fi
+echo "does Wordpress listen on the good port"
+grep -E "listen = 9000" "/etc/php/7.3/fpm/pool.d/www.conf" > /dev/null 2>&1
+if [ $? -ne 0 ]; then
+ 	echo "listen port configuration"
+	sed -i "s|.*listen = /run/php/php7.3-fpm.sock.*|listen = 9000|g" "/etc/php/7.3/fpm/pool.d/www.conf" 
+fi
 
 echo "check if the config file already exist"
 cat /.setup 2> /dev/null
@@ -14,13 +14,13 @@ if [ ! -f "wp-config.php" ]; then
 
 	cp /config/wp-config.php ./wp-config.php
 
-	wp config create --dbname=$MARIADB_DATABASE \
-					--dbuser=$MARIADB_USER \
-					--dbpass=$MARIADB_USER_PWD \
-					--dbhost=$MARIADB_HOST \
-					--path="/var/www/wordpress/" \
-					--skip-check \
-					--allow-root
+	# wp config create --dbname=$MARIADB_DATABASE \
+	# 				--dbuser=$MARIADB_USER \
+	# 				--dbpass=$MARIADB_USER_PWD \
+	# 				--dbhost=$MARIADB_HOST \
+	# 				--path="/var/www/wordpress/" \
+	# 				--skip-check \
+	# 				--allow-root
 	touch /.setup
 fi
 
