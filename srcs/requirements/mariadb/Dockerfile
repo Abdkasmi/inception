@@ -16,4 +16,4 @@ COPY ./tools/config.sql /tmp/
 COPY ./tools/entrypoint.sh /tmp/
 RUN chmod +x /tmp/entrypoint.sh
 
-ENTRYPOINT [ "bash", "mariadb/tmp/entrypoint.sh" ]
+ENTRYPOINT [ "bash", "/tmp/entrypoint.sh" ]
