@@ -12,8 +12,6 @@ cat /.setup 2> /dev/null
 if [ $? -ne 0 ]; then
 	echo "create config.php"
 
-	# cp /config/wp-config.php ./wp-config.php
-
 	wp config create --dbname=$MARIADB_DATABASE \
 					--dbuser=$MARIADB_USER \
 					--dbpass=$MARIADB_USER_PWD \
