@@ -9,7 +9,7 @@ fi
 
 echo "check if the config file already exist"
 cat /.setup 2> /dev/null
-if [ ! -f "wp-config.php" ]; then
+if [ $? -ne 0 ]; then
 	echo "create config.php"
 
 	# cp /config/wp-config.php ./wp-config.php
