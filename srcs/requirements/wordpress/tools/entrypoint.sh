@@ -14,7 +14,7 @@ if [ $? -ne 0 ]; then
 
 	wp config create --dbname=$MARIADB_DATABASE \
 					--dbuser=$MARIADB_USER \
-					--dbpass=$MARIADB_PWD \
+					--dbpass=$MARIADB_USER_PWD \
 					--dbhost=$MARIADB_HOST \
 					--path="/var/www/wordpress/" \
 					--skip-check \
