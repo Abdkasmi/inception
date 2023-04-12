@@ -15,8 +15,8 @@ if [ ! -d /var/lib/mysql/$MARIADB_DATABASE ]; then
 
 	mysqladmin -u root password $MARIADB_ROOT_PWD;
 	
-	echo "-- Stopping service"
 	service mysql stop
+	echo "-- Stopping service"
 else
 	mkdir /var/run/mysqld
 	touch /var/run/mysqld/mysqlf.pid
