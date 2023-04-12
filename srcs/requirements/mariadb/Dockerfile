@@ -6,9 +6,14 @@ RUN apt-get update -y
 RUN apt-get upgrade -y
 RUN apt-get install mariadb-server -y
 
-COPY ./tools/mariadb.cnf /etc/mysql/
-COPY ./tools/config.sql /tmp/
-COPY ./tools/entrypoint.sh /tmp/
-RUN chmod +x /tmp/entrypoint.sh
+RUN chown -R mysql:mysql /var/lib/mysql
+RUN mkdir -p /var/run/mysqld; \
+	mkfifo /var/run/mysqld/mysqld.sock
+RUN chown -R mysql:mysql /var/run/mysqld
 
-ENTRYPOINT [ "bash", "/tmp/entrypoint.sh" ]
+COPY ./tools/mariadb.cnf /etc/mysql/
+COPY ./tools/config.sql ./
+COPY ./tools/entrypoint.sh ./
+RUN chmod +x ./entrypoint.sh
+
+ENTRYPOINT [ "bash", "entrypoint.sh" ]
