@@ -3,6 +3,7 @@ chown -R mysql:mysql /var/lib/mysql
 if [ ! -d /var/lib/mysql/$MARIADB_DATABASE ]; then
 	echo "-- Starting service"
 	service mysql start
+	echo "-----------------"
 
 	mkdir -p /var/run/mysqld
 	touch /var/run/mysqld/mysqlf.pid
@@ -15,7 +16,6 @@ if [ ! -d /var/lib/mysql/$MARIADB_DATABASE ]; then
 
 	mysqladmin -u root password $MARIADB_ROOT_PWD;
 	
-	echo "-----------------"
 	service mysql stop
 	echo "-- Stopping service"
 else
