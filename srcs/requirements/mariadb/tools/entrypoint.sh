@@ -13,7 +13,7 @@ if [ ! -d /var/lib/mysql/$MARIADB_DATABASE ]; then
 	mysql -u root -e "GRANT ALL PRIVILEGES ON $MARIADB_DATABASE.* TO '$MARIADB_USER'@'%';"
 	mysql -u root -e "FLUSH PRIVILEGES;"
 
-	mysqladmin -u root password $MARIADB_ROOT_PWD;
+	mysqladmin -u root -p$MARIADB_ROOT_PWD;
 	
 	echo "-----------------"
 	service mysql stop
