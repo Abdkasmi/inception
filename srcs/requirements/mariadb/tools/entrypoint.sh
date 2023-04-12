@@ -33,7 +33,7 @@ if [ ! -d /var/lib/mysql/$MARIADB_DATABASE ]; then
 
 	echo "create $MARIADB_DATABASE"
 	eval "echo \"$(cat config.sql)\"" | mariadb -u root
-	mysqladmin -u root password $MARIADB_ROOT_PASSWORD
+	mysqladmin -u root password $MARIADB_ROOT_PWD
 
 	service mysql stop --datadir=/var/lib/mysql
 fi
