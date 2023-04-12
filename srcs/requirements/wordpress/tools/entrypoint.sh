@@ -45,4 +45,4 @@ fi
 
 # We need this to run wordpress but also so that the container keeps running
 # --nodaemonize == keep foreground
-php-fpm7 --nodaemonize
+php-fpm7.3 --nodaemonize
