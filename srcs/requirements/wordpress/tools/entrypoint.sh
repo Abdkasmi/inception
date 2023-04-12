@@ -29,18 +29,18 @@ then
 
 	# Wordpress configuration
 	wp core install --url="$WP_URL" --title="$WP_TITLE" --admin_user="$WP_ADMIN" \
-    	--admin_password="$WP_ADMIN_PWD" --admin_email="$WP_ADMIN_EMAIL" --skip-email
+    	--admin_password="$WP_ADMIN_PWD" --admin_email="$WP_ADMIN_EMAIL" --skip-email --allow-root
 
 
-	wp plugin update --all 
+	wp plugin update --all  --allow-root
 
 	# Install and activate theme
-	wp theme install twentysixteen --activate 
+	wp theme install twentysixteen --activate --allow-root
 
-	wp user create $WP_USER $WP_USER_EMAIL --role=editor --user_pass=$WP_USER_PWD
+	wp user create $WP_USER $WP_USER_EMAIL --role=editor --user_pass=$WP_USER_PWD --allow-root
 
 	# Creation d'un article pour l'example
-	wp post generate --count=1 --post_title="example-post"
+	wp post generate --count=1 --post_title="example-post" --allow-root
 fi
 
 # We need this to run wordpress but also so that the container keeps running
