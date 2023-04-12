@@ -24,6 +24,8 @@ WORKDIR /var/www/wordpress
 
 RUN	wp core download --allow-root
 
+COPY	tools/wp-config.php /config/wp-config.php
+
 COPY ./tools/entrypoint.sh /tmp/entrypoint.sh
 RUN chmod +x /tmp/entrypoint.sh
 
