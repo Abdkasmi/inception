@@ -1,27 +1,12 @@
-chown -R mysql:mysql /var/lib/mysql
-
 if [ ! -d /var/lib/mysql/$MARIADB_DATABASE ]; then
-	echo "-- Starting service"
-	service mysql start
+	service mysql start --datadir=/var/lib/mysql
 
-	mkdir -p /var/run/mysqld
-	mkfifo /var/run/mysqld/mysqld.sock
+	echo "create $MARIADB_DATABASE"
+	eval "echo \"$(cat config.sql)\"" | mariadb -u root
+	mysqladmin -u root password $MARIADB_ROOT_PASSWORD
 
-	mysql -u root -e "CREATE DATABASE IF NOT EXISTS $MARIADB_DATABASE;"
-	mysql -u root -e "CREATE USER IF NOT EXISTS '$MARIADB_USER'@'%' IDENTIFIED BY '$MARIADB_PASSWORD';"
-	mysql -u root -e "GRANT ALL PRIVILEGES ON $MARIADB_DATABASE.* TO '$MARIADB_USER'@'%';"
-	mysql -u root -e "FLUSH PRIVILEGES;"
-
-	mysqladmin -u root password $MARIADB_ROOT_PASSWORD;
-
-	service mysql stop
-	echo "-- Stopping service"
-else
-	mkdir -p /var/run/mysqld
-	mkfifo /var/run/mysqld/mysqld.sock
+	service mysql stop --datadir=/var/lib/mysql
 fi
 
-chown -R mysql:mysql /var/run/mysqld
-
-exec "$@"
+echo "$MARIADB_DATABASE ready"
 mysqld_safe --datadir=/var/lib/mysql
