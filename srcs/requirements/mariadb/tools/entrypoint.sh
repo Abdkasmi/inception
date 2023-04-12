@@ -8,14 +8,14 @@ if [ ! -d /var/lib/mysql/$MARIADB_DATABASE ]; then
 	mkdir -p /var/run/mysqld
 	touch /var/run/mysqld/mysqlf.pid
 	mkfifo /var/run/mysqld/mysqlf.sock
-
+echo "-----------------"
 	mysql -u root -e "CREATE DATABASE IF NOT EXISTS $MARIADB_DATABASE;"
 	mysql -u root -e "CREATE USER IF NOT EXISTS '$MARIADB_USER'@'%' IDENTIFIED BY '$MARIADB_PWD';"
 	mysql -u root -e "GRANT ALL PRIVILEGES ON $MARIADB_DATABASE.* TO '$MARIADB_USER'@'%';"
 	mysql -u root -e "FLUSH PRIVILEGES;"
-
+echo "-----------------"
 	mysqladmin -u root password $MARIADB_ROOT_PWD;
-	
+	echo "-----------------"
 	service mysql stop
 	echo "-- Stopping service"
 else
