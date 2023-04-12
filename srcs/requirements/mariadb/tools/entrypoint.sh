@@ -17,11 +17,11 @@ if [ ! -d /var/lib/mysql/$MARIADB_DATABASE ]; then
 	service mysql stop
 	echo "-- Stopping service"
 else
-	mkdir /var/run/mysqld
+	mkdir -p /var/run/mysqld
 	mkfifo /var/run/mysqld/mysqld.sock
 fi
 
-chown -R mysql /var/run/mysqld
+chown -R mysql:mysql /var/run/mysqld
 
 exec "$@"
 mysqld_safe --datadir=/var/lib/mysql
