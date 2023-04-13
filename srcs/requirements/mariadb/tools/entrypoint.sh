@@ -2,7 +2,6 @@ if [ ! -d /var/lib/mysql/$MARIADB_DATABASE ]; then
 	service mysql start
 
 	echo "create $MARIADB_DATABASE"
-	eval "echo \"$(cat config.sql)\""
 	mariadb -u root -p$MARIADB_ROOT_PASSWORD
 	mysqladmin -u root password $MARIADB_ROOT_PASSWORD
 
