@@ -16,3 +16,5 @@ COPY ./tools/config.sql ./
 COPY ./tools/entrypoint.sh ./
 
 ENTRYPOINT [ "bash", "entrypoint.sh" ]
+
+CMD ["mysqld_safe"]
