@@ -10,8 +10,8 @@ RUN apt-get upgrade -y
 RUN apt-get install mariadb-server -y
 
 RUN chown -R mysql:mysql /var/lib/mysql
-RUN mkdir -p /var/run/mysqld; \
-	mkfifo /var/run/mysqld/mysqld.sock
+RUN mkdir -p /run/mysqld; \
+	mkfifo /run/mysqld/mysqld.sock
 RUN chown -R mysql:mysql /var/run/mysqld
 
 COPY ./tools/mariadb.cnf /etc/mysql/
