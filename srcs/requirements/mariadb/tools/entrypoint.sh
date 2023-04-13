@@ -5,7 +5,7 @@ if [ ! -d /var/lib/mysql/$MARIADB_DATABASE ]; then
 	mariadb -u root -p$MARIADB_ROOT_PASSWORD
 	mysqladmin -u root password $MARIADB_ROOT_PASSWORD
 
-	service mysql stop
+	mysqladmin -u root password $MARIADB_ROOT_PASSWORD shutdown
 fi
 
 echo "$MARIADB_DATABASE ready"
