@@ -1,12 +1,13 @@
 if [ ! -d /var/lib/mysql/$MARIADB_DATABASE ]; then
-	service mysql start --datadir=/var/lib/mysql
+	service mysql start
 
 	echo "create $MARIADB_DATABASE"
-	eval "echo \"$(cat config.sql)\"" | mariadb -u root -p$MARIADB_ROOT_PASSWORD
+	eval "echo \"$(cat config.sql)\""
+	mariadb -u root -p$MARIADB_ROOT_PASSWORD
 	mysqladmin -u root password $MARIADB_ROOT_PASSWORD
 
-	service mysql stop --datadir=/var/lib/mysql
+	service mysql stop
 fi
 
 echo "$MARIADB_DATABASE ready"
-mysqld_safe --datadir=/var/lib/mysql
+mysqld_safe
