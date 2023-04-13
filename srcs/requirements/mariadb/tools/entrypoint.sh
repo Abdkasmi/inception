@@ -1,4 +1,5 @@
 if [ ! -d /var/lib/mysql/$MARIADB_DATABASE ]; then
+	socket=/run/mysqld/mysqld.sock
 	service mysql start
 
 	echo "create $MARIADB_DATABASE"
