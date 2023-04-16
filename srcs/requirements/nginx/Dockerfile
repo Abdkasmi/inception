@@ -13,7 +13,7 @@ RUN mkdir -p /etc/nginx/ssl
 RUN mkdir -p /etc/nginx/sites-enabled
 
 # Copy config file on the container
-COPY	tools/nginx.conf etc/nginx/sites-enabled/default.conf
+COPY	tools/nginx.conf /etc/nginx/sites-enabled/default.conf
 
 # openssl is the basic command line tool for creating or managing OpenSSl certificates, keys,...
 # req is used to requesta and generate a certificate
