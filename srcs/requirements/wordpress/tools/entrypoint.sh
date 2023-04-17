@@ -22,7 +22,7 @@ fi
 if [ ! -f "wp-config.php" ]
 then
 	echo "creating config.php"
-	cp /config/wp-config.php ./wp-config.php
+	cp /conf/wp-config.php ./wp-config.php
 
 	# We have to wait a bit or else the next steps will be skipped
 	# In the meantime, connection to database is happening
