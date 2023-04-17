@@ -1,17 +1,17 @@
 # WP-CLI is the official command-line interface for WordPress.
 #
 # Modify www.conf so that it works locally as it's asked
-target="/etc/php7/php-fpm.d/www.conf"
+target="/etc/php/7.3/fpm/pool.d/www.conf"
 
 # The www.conf file is needed for communication with the server
 # 2>&1 redirige la sortie d’erreur(STDERR) vers la sortie standard(STDOUT) et la sortie STDOUT dans /dev/null.
 # Dans ce cas, l’administrateur ou root ne sera jamais si la commande c’est bien exécutées ou pas.
-grep -E "listen = 127.0.0.1" $target > /dev/null 2>&1
+grep -E "listen = 127.20.0.1" $target > /dev/null 2>&1
 if [ $? -eq 0 ]
 then
 	# Replace first part with second
 	# worpress not in local but nginx port 9000
-	sed -i "s|.*listen = 127.0.0.1.*|listen = 9000|g" $target
+	sed -i "s|.*listen = 127.20.0.1.*|listen = 9000|g" $target
 	echo "env[MARIADB_HOST] = \$MARIADB_HOST" >> $target
 	echo "env[MARIADB_USER] = \$MARIADB_USER" >> $target
 	echo "env[MARIADB_PWD] = \$MARIADB_PWD" >> $target
