@@ -17,12 +17,11 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
 
-# Changing current directory to /var/www/wordpress
+RUN	wp core download --path=/var/www/wordpress --allow-root
+
 WORKDIR /var/www/wordpress
 
-# RUN	wp core download --allow-root
-
-COPY	tools/wp-config.php /config/wp-config.php
+COPY	tools/wp-config.php /conf/wp-config.php
 
 COPY ./tools/entrypoint.sh /tmp/entrypoint.sh
 RUN chmod +x /tmp/entrypoint.sh
