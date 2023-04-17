@@ -12,10 +12,7 @@ RUN apt-get install php7.3 php7.3-fpm php7.3-mysql -y
 RUN mkdir -p /run/php
 
 # intalling wp-cli from a url using curl (wordpress-commandline)
-RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar --output /usr/bin/wp
-
-# assigning execution rights to use wp and moving the executable in PATH
-RUN chmod +x /usr/bin/wp
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar --output /usr/local/bon/wp
 
 # Changing current directory to /var/www/wordpress
 WORKDIR /var/www/wordpress
