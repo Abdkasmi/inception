@@ -17,8 +17,8 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
 
-RUN chmod 777 /var/www/wordpress
 WORKDIR /var/www/wordpress
+RUN chmod 777 /var/www/wordpress
 
 RUN	wp core download --allow-root
 
