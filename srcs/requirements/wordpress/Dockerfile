@@ -18,7 +18,6 @@ RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
 
 WORKDIR /var/www/wordpress
-RUN chmod 777 /var/www/wordpress
 
 RUN	wp core download --allow-root
 
