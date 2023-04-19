@@ -48,12 +48,12 @@ volumes:
     driver: local
     driver_opts: 
       device: /home/abkasmi/data/database
-      type: volume
+      type: none
       o: bind
 
   wordpress_volume:
     driver: local
     driver_opts: 
       device: /home/abkasmi/data/wordpress
-      type: volume
+      type: none
       o: bind
