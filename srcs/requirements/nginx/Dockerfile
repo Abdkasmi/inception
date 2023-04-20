@@ -36,7 +36,7 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:4096 \
     -out /etc/ssl/certs/mpeharpr.crt \
     -subj "/C=BE/ST=BECentral/L=Brussels/O=wordpress/OU=mpeharpr/CN=mpeharpr.42.fr"
 
-COPY tools/default.conf /etc/nginx/sites-enabled/default
+COPY tools/nginx.conf /etc/nginx/sites-enabled/default
 
 EXPOSE 443
 
