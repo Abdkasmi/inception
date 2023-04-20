@@ -5,6 +5,7 @@ FROM debian:buster
 ENV DEBIAN_FRONTEND noninteractive
 ENV TERM xterm
 
+
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install mariadb-server mariadb-client -y
