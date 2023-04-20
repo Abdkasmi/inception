@@ -7,9 +7,6 @@ RUN apt-get update -y
 RUN apt-get install nginx -y
 RUN apt-get install openssl -y
 
-# Copy config file on the container
-COPY	tools/nginx.conf /etc/nginx/sites-enabled/default.conf
-
 # openssl is the basic command line tool for creating or managing OpenSSl certificates, keys,...
 # req is used to requesta and generate a certificate
 # -x509 = self signed
@@ -18,9 +15,12 @@ COPY	tools/nginx.conf /etc/nginx/sites-enabled/default.conf
 # -out = This tells OpenSSL where to place the certificate that we are creating.
 # -subj = response to SSL key info 
 RUN openssl req -x509 -nodes \
-    -keyout /etc/ssl/abkasmi.42.fr.key \
-    -out /etc/ssl/abkasmi.42.fr.crt \
+    -keyout /etc/ssl/abkasmi.key \
+    -out /etc/ssl/abkasmi.crt \
     -subj "/C=BE/ST=Belgium/L=Brussels/O=42/OU=19/CN=abkasmi.42.fr/UID=abkasmi"
+
+# Copy config file on the container
+COPY	tools/nginx.conf /etc/nginx/sites-enabled/default.conf
 
 # Expose the only port we can use in the subject
 EXPOSE 443
