@@ -39,7 +39,7 @@ COPY tools/www.conf /etc/php/7.3/fpm/pool.d/
 COPY tools/wp-config.php /var/www/
 COPY tools/entrypoint.sh /var/www/
 
-RUN chmod +x /var/www/wordpress-init.sh
+RUN chmod +x /var/www/entrypoint.sh
 
 ENTRYPOINT ["/var/www/entrypoint.sh"]
 CMD ["/usr/sbin/php-fpm7.3", "--nodaemonize"]
