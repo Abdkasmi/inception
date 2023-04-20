@@ -53,23 +53,23 @@ chown -R 755 /var/www/*
 mkdir -p /run/php/
 touch /run/php/php7.3-fpm.pid
 
-if [ ! -f /var/www/html/wp-config.php ]; then
+if [ ! -f /var/www/wordpress/wp-config.php ]; then
 
 	echo "Starting wordpress setup"
 
-	mkdir -p /var/www/html
-	chmod 755 /var/www/html
+	mkdir -p /var/www/wordpress
+	chmod 755 /var/www/wordpress
 	wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 	chmod +x wp-cli.phar
 	mv wp-cli.phar /usr/local/bin/wp
-	cd /var/www/html
+	cd /var/www/wordpress
 	wp core download --allow-root
-	mv /var/www/wp-config.php /var/www/html/
+	mv /var/www/wp-config.php /var/www/wordpress/
 
-	sed -i "s/XXX_WORDPRESS_DB_NAME_XXX/$MARIADB_DATABASE/g" /var/www/html/wp-config.php
-	sed -i "s/XXX_WORDPRESS_DB_USER_XXX/$MARIADB_USER/g" /var/www/html/wp-config.php
-	sed -i "s/XXX_WORDPRESS_DB_HOST_XXX/$MARIADBDB_HOST/g" /var/www/html/wp-config.php
-	sed -i "s/XXX_WORDPRESS_DB_PASS_XXX/$MARIADB_USER_PASSWORD/g" /var/www/html/wp-config.php
+	sed -i "s/XXX_WORDPRESS_DB_NAME_XXX/$MARIADB_DATABASE/g" /var/www/wordpress/wp-config.php
+	sed -i "s/XXX_WORDPRESS_DB_USER_XXX/$MARIADB_USER/g" /var/www/wordpress/wp-config.php
+	sed -i "s/XXX_WORDPRESS_DB_HOST_XXX/$MARIADBDB_HOST/g" /var/www/wordpress/wp-config.php
+	sed -i "s/XXX_WORDPRESS_DB_PASS_XXX/$MARIADB_USER_PASSWORD/g" /var/www/wordpress/wp-config.php
 
 	echo "Creating wordpress users..."
 
