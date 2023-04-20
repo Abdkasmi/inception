@@ -41,5 +41,5 @@ COPY tools/entrypoint.sh /var/www/
 
 RUN chmod +x /var/www/entrypoint.sh
 
-ENTRYPOINT ["/var/www/entrypoint.sh"]
+ENTRYPOINT ["bash", "/var/www/entrypoint.sh"]
 CMD ["/usr/sbin/php-fpm7.3", "--nodaemonize"]
