@@ -4,7 +4,13 @@ services:
   mariadb:
     container_name: mariadb
     build: ./requirements/mariadb
-    env_file: .env
+    environments:
+      - MYSQL_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
+      - MYSQL_WP_USER=${WP_USER}
+      - MYSQL_WP_DATABASE=${MARIADB_DATABASE}
+      - MYSQL_WP_PASSWORD=$WP_USER_PWD}
+    env_file:
+      - .env
     networks:
       - mynetwork
     image: mariadb
@@ -17,7 +23,8 @@ services:
   wordpress:
     container_name: wordpress
     build: ./requirements/wordpress
-    env_file: .env
+    env_file: 
+      - .env
     networks:
       - mynetwork
     image: wordpress
