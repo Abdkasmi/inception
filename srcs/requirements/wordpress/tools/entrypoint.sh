@@ -63,17 +63,17 @@ if [ ! -f /var/www/html/wp-config.php ]; then
 	mv wp-cli.phar /usr/local/bin/wp
 	cd /var/www/html
 	wp core download --allow-root
-	mv /var/www/wp-config.php /var/www/wordpress/
+	mv /var/www/wp-config.php /var/www/html/
 
 	sed -i "s/XXX_WORDPRESS_DB_NAME_XXX/$MARIADB_DATABASE/g" /var/www/html/wp-config.php
 	sed -i "s/XXX_WORDPRESS_DB_USER_XXX/$MARIADB_USER/g" /var/www/html/wp-config.php
-	sed -i "s/XXX_WORDPRESS_DB_HOST_XXX/$MARIADBDB_HOST/g" /var/www/html/wp-config.php
-	sed -i "s/XXX_WORDPRESS_DB_PASS_XXX/$MARIADB_USER_PASSWORD/g" /var/www/html/wp-config.php
+	sed -i "s/XXX_WORDPRESS_DB_HOST_XXX/$MARIADB_HOSTg" /var/www/html/wp-config.php
+	sed -i "s/XXX_WORDPRESS_DB_PASS_XXX/$MARIADB_USER_PASSORD/g" /var/www/html/wp-config.php
 
 	echo "Creating wordpress users..."
 
 	wp core install --allow-root --url=${WP_URL} --title=${WP_TITLE} --admin_user=${WP_ADMIN} --admin_password=${WP_ADMIN_PWD} --admin_email=${WP_ADMIN_EMAIL}
-	wp user create --allow-root ${WP_USER} ${WP_USER_EMAIL} --user_pass=${WP_USER_PASSWORD}
+	wp user create --allow-root ${WP_USER} ${WP_EUSER_MAIL} --user_pass=${WP_USER_PWD}
 
 	echo "Wordpress is set up"
 
