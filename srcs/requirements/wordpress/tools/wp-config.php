@@ -27,6 +27,10 @@ $table_prefix = 'wp_';
 
 define( 'WP_DEBUG', false);
 
+define('WP_AUTO_UPDATE_CORE', false);
+
+define('DISALLOW_FILE_MODS', true);
+
 if ( ! defined( 'ABSPATH' ) ) {
         define( 'ABSPATH', __DIR__ . '/' );
 }

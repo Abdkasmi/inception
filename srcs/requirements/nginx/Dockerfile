@@ -14,7 +14,7 @@ RUN apt-get install openssl -y
 # -keyout = This line tells OpenSSL where to place the generated private key file that we are creating.
 # -out = This tells OpenSSL where to place the certificate that we are creating.
 # -subj = response to SSL key info 
-RUN openssl req -x509 -nodes \
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:4096 \
     -keyout /etc/ssl/abkasmi.key \
     -out /etc/ssl/abkasmi.crt \
     -subj "/C=BE/ST=Belgium/L=Brussels/O=42/OU=19/CN=abkasmi.42.fr/UID=abkasmi"
