@@ -2,7 +2,7 @@
 
 define('WP_CACHE', true);
 
-define( 'DB_NAME', 'maydb' );
+define( 'DB_NAME', 'mydb' );
 
 define( 'DB_USER', 'abdoullah' );
 
