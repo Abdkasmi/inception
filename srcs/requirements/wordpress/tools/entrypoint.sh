@@ -20,7 +20,7 @@ if [ ! -f /var/www/html/wp-config.php ]; then
 
 	sed -i "s/XXX_WORDPRESS_DB_NAME_XXX/$MARIADB_DATABASE/g" /var/www/html/wp-config.php
 	sed -i "s/XXX_WORDPRESS_DB_USER_XXX/$MARIADB_USER/g" /var/www/html/wp-config.php
-	sed -i "s/XXX_WORDPRESS_DB_HOST_XXX/$MARIADB_HOSTg" /var/www/html/wp-config.php
+	sed -i "s/XXX_WORDPRESS_DB_HOST_XXX/$MARIADB_HOST/g" /var/www/html/wp-config.php
 	sed -i "s/XXX_WORDPRESS_DB_PASS_XXX/$MARIADB_PASSORD/g" /var/www/html/wp-config.php
 
 	echo "Creating wordpress users..."
