@@ -1,6 +1,7 @@
 # instructions to build my nginx image
 
 FROM debian:buster
+LABEL maintainer="abkasmi <abkasmi@student.s19.be>"
 
 # installing nginx and openssl
 RUN apt-get update -y

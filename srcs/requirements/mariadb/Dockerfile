@@ -1,6 +1,8 @@
 # instructions to build my database image
 
 FROM debian:buster
+LABEL maintainer="abkasmi <abkasmi@student.s19.be>"
+
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV TERM xterm
