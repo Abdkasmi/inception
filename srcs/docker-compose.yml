@@ -4,7 +4,7 @@ services:
   mariadb:
     container_name: mariadb
     build: ./requirements/mariadb
-    environments:
+    environment:
       - MYSQL_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
       - MYSQL_WP_USER=${WP_USER}
       - MYSQL_WP_DATABASE=${MARIADB_DATABASE}
