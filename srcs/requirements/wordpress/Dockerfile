@@ -41,7 +41,7 @@ RUN apt-get update -y && apt-get install -y php7.3 php-mysqli php-fpm wget
 
 COPY tools/www.conf /etc/php/7.3/fpm/pool.d/
 COPY tools/wp-config.php /var/www/
-COPY tools/wordpress-init.sh /var/www/
+COPY tools/entrypoint.sh /var/www/
 
 RUN chmod +x /var/www/entrypoint.sh
 
