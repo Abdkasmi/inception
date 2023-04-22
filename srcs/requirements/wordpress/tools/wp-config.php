@@ -34,4 +34,4 @@ define('DISALLOW_FILE_MODS', true);
 if ( !defined('ABSPATH') )
         define('ABSPATH', '/var/www/html');
 
-require_once ABSPATH . 'wp-settings.php';
+require_once(ABSPATH . 'wp-settings.php');
