@@ -2,13 +2,13 @@
 
 define('WP_CACHE', true);
 
-define( 'DB_NAME', getenv('MARIADB_DATABASE') );
+define( 'DB_NAME', 'maydb' );
 
-define( 'DB_USER', getenv('MARIADB_USER') );
+define( 'DB_USER', 'abdoullah' );
 
-define( 'DB_PASSWORD', getenv('MARIADB_PASSWORD') );
+define( 'DB_PASSWORD', 'Joueur11' );
 
-define( 'DB_HOST', getenv('MARIADB_HOST'));
+define( 'DB_HOST', 'mariadb');
 
 define( 'DB_CHARSET', 'utf8' );
 
