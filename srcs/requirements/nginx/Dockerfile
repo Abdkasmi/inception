@@ -1,12 +1,12 @@
 # instructions to build my nginx image
 
-FROM debian:buster
+FROM alpine
 LABEL maintainer="abkasmi <abkasmi@student.s19.be>"
 
 # installing nginx and openssl
-RUN apt-get update -y
-RUN apt-get install nginx -y
-RUN apt-get install openssl -y
+RUN apk update -y
+RUN apk add nginx -y
+RUN apk add openssl -y
 
 # openssl is the basic command line tool for creating or managing OpenSSl certificates, keys,...
 # req is used to requesta and generate a certificate
