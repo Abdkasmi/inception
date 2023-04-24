@@ -7,7 +7,7 @@ LABEL maintainer="abkasmi <abkasmi@student.s19.be>"
 ENV DEBIAN_FRONTEND noninteractive
 ENV TERM xterm
 
-RUN apk update && apk add mariadb-server mariadb-client \
+RUN apk update && apk add mariadb mariadb-client \
     && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /tmp/
