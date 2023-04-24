@@ -1,13 +1,13 @@
 # instructions to build my database image
 
-FROM alpine
+FROM debian:buster
 LABEL maintainer="abkasmi <abkasmi@student.s19.be>"
 
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV TERM xterm
 
-RUN apk update && apk add mariadb mariadb-client \
+RUN apt-get update && apt-get install -y mariadb-server mariadb-client \
     && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /tmp/
