@@ -39,7 +39,7 @@ services:
       - mynetwork
     image: nginx
     ports:
-      - 443:443
+      - "443:443"
     depends_on:
       - wordpress
     volumes:
