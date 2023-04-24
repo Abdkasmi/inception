@@ -24,7 +24,7 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:4096 \
 COPY	tools/nginx.conf /etc/nginx/sites-enabled/default.conf
 
 # Expose the only port we can use in the subject
-# EXPOSE 443
+EXPOSE 443
 
 # start server
 CMD ["nginx", "-g", "daemon off;"]
