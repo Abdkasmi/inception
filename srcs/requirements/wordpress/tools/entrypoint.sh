@@ -26,7 +26,7 @@ if [ ! -f /var/www/html/wp-config.php ]; then
 	echo "Creating wordpress users..."
 
 	wp core install --allow-root --url=${WP_URL} --title=${WP_TITLE} --admin_user=${WP_ADMIN} --admin_password=${WP_ADMIN_PWD} --admin_email=${WP_ADMIN_EMAIL} --path="/var/www/html/"
-	wp user create ${WP_USER} ${WP_EUSER_MAIL} --role=author --user_pass=${WP_USER_PWD} --allow-root
+	wp user create ${WP_USER} ${WP_USER_EMAIL} --role=author --user_pass=${WP_USER_PWD} --allow-root
 
 	echo "Wordpress is set up"
 
