@@ -26,7 +26,6 @@ down:
 clean:	down
 		sudo docker volume rm -f srcs_mariadb_volume
 		sudo docker volume rm -f srcs_wordpress_volume
-		sudo docker network rm mynetwork
 		@echo "${YELLOW}cleaned${RESET}"
 
 fclean:	clean
