@@ -4,9 +4,9 @@ FROM alpine
 LABEL maintainer="abkasmi <abkasmi@student.s19.be>"
 
 # installing nginx and openssl
-RUN apk update -y
-RUN apk add nginx -y
-RUN apk add openssl -y
+RUN apk update
+RUN apk add nginx 
+RUN apk add openssl 
 
 # openssl is the basic command line tool for creating or managing OpenSSl certificates, keys,...
 # req is used to requesta and generate a certificate

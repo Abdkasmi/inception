@@ -6,7 +6,7 @@ LABEL maintainer="abkasmi <abkasmi@student.s19.be>"
 ENV DEBIAN_FRONTEND noninteractive
 ENV TERM xterm
 
-RUN apk update -y && apk add -y php7.3 php-mysqli php-fpm wget
+RUN apk update && apk add php7.3 php-mysqli php-fpm wget
 
 COPY tools/www.conf /etc/php/7.3/fpm/pool.d/
 COPY tools/wp-config.php /var/www/
