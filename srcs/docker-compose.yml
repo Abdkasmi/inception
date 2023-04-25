@@ -9,6 +9,11 @@ services:
     networks:
       - mynetwork
     image: mariadb
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-u", "$MARIADB_USER", "-p$MARIADB_PASSWORD"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     ports:
       - 3306:3306
     volumes:
