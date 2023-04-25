@@ -28,6 +28,6 @@ define('WP_AUTO_UPDATE_CORE', false);
 define('DISALLOW_FILE_MODS', true);
 
 if ( !defined('ABSPATH') )
-        define('ABSPATH', '/var/www/html');
+        define('ABSPATH', '/var/www/html/wordpress');
 
 require_once(ABSPATH . 'wp-settings.php');
