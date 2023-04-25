@@ -36,4 +36,4 @@ COPY tools/mariadb.cnf /etc/mysql/
 COPY ./tools/entrypoint.sh ./
 
 # This execution of the  script is now the starting point
-ENTRYPOINT [ "entrypoint.sh" ]
+ENTRYPOINT [ "bash", "entrypoint.sh" ]
