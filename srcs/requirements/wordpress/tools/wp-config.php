@@ -2,17 +2,13 @@
 
 define('WP_CACHE', true);
 
-define( 'DB_NAME', 'mydb' );
+define( 'DB_NAME', 'XXX_MARIADB_DATABASE_XXX' );
 
-define( 'DB_USER', 'abdoullah' );
+define( 'DB_USER', 'XXX_MARIADB_USER_XXX' );
 
-define( 'DB_PASSWORD', 'Joueur11' );
+define( 'DB_PASSWORD', 'XXX_MARIADB_USER_PASSWORD_XXX' );
 
-define( 'DB_HOST', 'mariadb');
-
-define( 'DB_CHARSET', 'utf8' );
-
-define( 'DB_COLLATE', '' );
+define( 'DB_HOST', 'XXX_MARIADB_HOST_XXX');
 
 define('AUTH_KEY',         'DR3Rhr&z8#EbP!b7qfaDRi?xEx$FhEqfX496idEQ');
 define('SECURE_AUTH_KEY',  '5$S?yoDnSopXhr$HbtT!aM$R8zjMo584HEQAEcDF');
