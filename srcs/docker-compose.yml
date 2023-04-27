@@ -26,10 +26,10 @@ services:
     env_file: 
       - .env
     environment:
-      - DB_NAME=$MARIADB_DATABASE
-      - DB_USER=$MARIADB_USER
-      - DB_PASSWORD=$MARIADB_USER_PASSWORD
-      - DB_HOST=$MARIADB_HOST
+      - DB_NAME=${MARIADB_DATABASE}
+      - DB_USER=${MARIADB_USER}
+      - DB_PASSWORD=${MARIADB_USER_PASSWORD}
+      - DB_HOST=${MARIADB_HOST}
     networks:
       - mynetwork
     image: wordpress
