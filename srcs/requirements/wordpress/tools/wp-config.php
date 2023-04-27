@@ -2,22 +2,22 @@
 
 define('WP_CACHE', true);
 
-define( 'DB_NAME', getenv('MARIADB_DATABASE') );
+define( 'DB_NAME', 'mydb' );
 
-define( 'DB_USER', getenv('MARIADB_USER') );
+define( 'DB_USER', 'abdoullah' );
 
-define( 'DB_PASSWORD', getenv('MARIADB_USER_PASSWORD') );
+define( 'DB_PASSWORD', 'Joueur11' );
 
-define( 'DB_HOST', getenv('MARIADB_HOST') );
+define( 'DB_HOST', 'mariadb' );
 
-define('AUTH_KEY',         getenv('AUTH_KEY'));
-define('SECURE_AUTH_KEY',  getenv('SECURE_AUTH_KEY'));
-define('LOGGED_IN_KEY',    getenv('LOGGED_IN_KEY'));
-define('NONCE_KEY',        getenv('NONCE_KEY'));
-define('AUTH_SALT',        getenv('AUTH_SALT'));
-define('SECURE_AUTH_SALT', getenv('SECURE_AUTH_SALT'));
-define('LOGGED_IN_SALT',   getenv('LOGGED_IN_SALT'));
-define('NONCE_SALT',       getenv('NONCE_SALT'));
+define('AUTH_KEY',         'DR3Rhr&z8#EbP!b7qfaDRi?xEx$FhEqfX496idEQ');
+define('SECURE_AUTH_KEY',  '5$S?yoDnSopXhr$HbtT!aM$R8zjMo584HEQAEcDF');
+define('LOGGED_IN_KEY',    '6Ba4A545qJ78h#jQNDn?znYMoa@xM4TGyE@RQ@$6');
+define('NONCE_KEY',        'oG@p3a7!aeT6iEnEt79eet5jp!Pq5rc$E&@f8A7a');
+define('AUTH_SALT',        'aB&izSR#tiA&b6d&AgDzt$Jr5g!?5Q#AP8zdik$r');
+define('SECURE_AUTH_SALT', '6Bq&HcP8T6cfJL!a!&Db#kay6@GgM6ytNxefbJ3K');
+define('LOGGED_IN_SALT',   'qqgq3FipXDn8iQY6qiJaLNzER69Kfc8$!qbE&tfg');
+define('NONCE_SALT',       'FD5$4Rde@sD6o@SRBfghaeeY?mc3cn@D8dX3M?Rk');
 
 $table_prefix = 'wp_';
 
