@@ -1,14 +1,19 @@
 <?php
 
+$database_name = getenv('DB_NAME');
+$database_user = getenv('DB_USER');
+$database_password = getenv('DB_PASSWORD');
+$database_host = getenv('DB_HOST');
+
 define('WP_CACHE', true);
 
-define( 'DB_NAME', 'mydb' );
+define('DB_NAME', $database_name);
 
-define( 'DB_USER', 'abdoullah' );
+define('DB_USER', $database_user);
 
-define( 'DB_PASSWORD', 'Joueur11' );
+define('DB_PASSWORD', $database_password);
 
-define( 'DB_HOST', 'mariadb' );
+define('DB_HOST', $database_host);
 
 define('AUTH_KEY',         'DR3Rhr&z8#EbP!b7qfaDRi?xEx$FhEqfX496idEQ');
 define('SECURE_AUTH_KEY',  '5$S?yoDnSopXhr$HbtT!aM$R8zjMo584HEQAEcDF');
