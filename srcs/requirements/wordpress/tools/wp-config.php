@@ -2,13 +2,13 @@
 
 define('WP_CACHE', true);
 
-define( 'DB_NAME', getenv('$MARIADB_DATABASE') );
+define( 'DB_NAME', getenv('MARIADB_DATABASE') );
 
-define( 'DB_USER', getenv('$MARIADB_USER') );
+define( 'DB_USER', getenv('MARIADB_USER') );
 
-define( 'DB_PASSWORD', getenv('$MARIADB_USER_PASSWORD') );
+define( 'DB_PASSWORD', getenv('MARIADB_USER_PASSWORD') );
 
-define( 'DB_HOST', getenv('$MARIADB_HOST') );
+define( 'DB_HOST', getenv('MARIADB_HOST') );
 
 define('AUTH_KEY',         getenv('AUTH_KEY'));
 define('SECURE_AUTH_KEY',  getenv('SECURE_AUTH_KEY'));
