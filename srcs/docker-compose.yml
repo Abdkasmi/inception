@@ -1,0 +1,70 @@
+version: "3.3"
+
+services:
+  mariadb:
+    container_name: mariadb
+    build: ./requirements/mariadb
+    env_file:
+      - .env
+    networks:
+      - mynetwork
+    image: mariadb
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-u", "abdoullah", "-pJoueur11"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - 3306:3306
+    volumes:
+      - mariadb_volume:/var/lib/mysql
+    restart: on-failure
+
+  wordpress:
+    container_name: wordpress
+    build: ./requirements/wordpress
+    env_file: 
+      - .env
+    networks:
+      - mynetwork
+    image: wordpress
+    ports:
+      - 9000:9000
+    depends_on:
+      - mariadb
+    volumes:
+      - wordpress_volume:/var/www/html
+    restart: on-failure
+
+  nginx:
+    container_name: nginx
+    build: ./requirements/nginx
+    env_file: .env
+    networks:
+      - mynetwork
+    image: nginx
+    ports:
+      - 443:443
+    depends_on:
+      - wordpress
+    volumes:
+      - wordpress_volume:/var/www/html
+    restart: unless-stopped
+
+networks:
+  mynetwork:
+
+volumes:
+  mariadb_volume:
+    driver: local
+    driver_opts: 
+      device: /home/abkasmi/data/database
+      type: volume
+      o: bind
+
+  wordpress_volume:
+    driver: local
+    driver_opts: 
+      device: /home/abkasmi/data/wordpress
+      type: volume
+      o: bind
