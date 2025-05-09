@@ -10,7 +10,7 @@ services:
       - mynetwork
     image: mariadb
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-u", "abdoullah", "-pJoueur11"]
+      test: ["CMD", "mysqladmin", "ping", "-u", "abdoullah", ""]
       interval: 10s
       timeout: 5s
       retries: 5
